@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CmsSite</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= @liveAccess %>
+<% if (@liveAccess == true) %>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to "Verktygshanteran", root_path, :class => "brand" %>
+        <ul class="nav">
+          <% Page.all.each do |page| %>
+            <li><%= link_to page.name, page %></li>
+           <% end %>
+          <li class="current"><a href="">Editera</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %> 
+<div id="wrapper" class="container">
+  <div id="content" class="row" data-pjax-container>
+      <%= yield %>
+  </div>
+  <div style="text-align: center;" id="footer">
+    <p>FOOTER</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
+  

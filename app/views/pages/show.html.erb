@@ -1,0 +1,12 @@
+<div id="editbtn" class="span4 offset8">
+<p>
+  <%= link_to "Editera denna sida", "/editor" + request.path, id: "edit_link", data: {save_url: mercury_update_page_path(@page)}, class: "btn btn-warning" %>
+</p>
+</div>
+<div class="span12">
+  <h1><span id="page_name" class="mercury-region" data-type="editable"><%= raw @page.name %></span></h1>
+  
+  <div id="page_content" class="mercury-region" data-type="editable">
+    <%= raw @page.content %>
+  </div>  
+</div>
